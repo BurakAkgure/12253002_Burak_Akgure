@@ -1,0 +1,82 @@
+#include <conio.h>
+#include <stdio.h>
+
+void main()
+{
+	int sifre, para, menu, a, toplam, fark; //a ==> yatirilacak, cekilecek, havale edilecek para miktarıdır.
+	char b[30];
+	para=1000;
+	printf("BANKAMATIK\n\n");
+	printf("Bankamatigimize hosgeldiniz , islem yapabilmek icin lutfen kullanici adinizi ve sifrenizi giriniz.\n\n");
+	char ad[30];
+	printf("Kullanici adinizi giriniz: ");
+	gets (ad);
+	printf("Sifrenizi giriniz ");
+	scanf("%d", &sifre);
+	if(sifre==2235) //butun kullanıcılar için gecerli sifreyi 2235 kabul edecektir.
+	{
+	printf("Hesabinizda %d TL para bulunmaktadir\n", para);
+	printf("Sifre dogru , gerceklestirmek istediginiz islemi secin\n");
+	printf("1-Para yatir\n2-Para cek\n3-Para havale et\n4-Islem iptal\n");
+	scanf("%d", &menu);
+	switch(menu)
+	{
+	case 1:
+		
+		printf("Yatirmak istediginiz tutari girin = \n");
+		scanf("%d", &a);
+		toplam= para+a;
+		printf("Hesabinizda %d TL para bulunmaktadir\n",toplam);
+		break;
+		
+	case 2:
+		
+		printf("Cekmek istediginiz tutari girin = ");
+		scanf("%d", &a);
+		if(a<para)
+		{
+		fark = para - a;
+		printf("Hesabinizda %d TL para kaldi\n", fark);
+		}
+		else if(a>para)
+			printf("Bu kadar para cekemezsiniz , cunku bu kadar paraniz yok.\n");
+		else
+			printf("Hesabinizda para kalmadi :( IFLAS ETTIN !!\n");
+		break;
+	
+	case 3:
+		
+		printf("Havale yapacaginiz kisinin adini yazin \n ");
+		scanf("%s", &b);
+		printf("%s adli kisiye para gondereceksiniz \n", b);
+		printf("Yolliyacaginiz para tutarini girin  ");
+		scanf("%d",&a);
+		if(a<para)
+		{
+		fark= para - a;
+		printf("Havale basarili hesabinizda %d TL para kaldi \n",fark);
+		}
+		else if(a>para)
+		printf("Bu kadar para yolliyamazsiniz , cunku bu kadar paraniz yok.\n");
+		else
+			printf("Hesabinizda para kalmadi , elinde avcunda ne varsa %s adli kisiye yolladin\n", b);
+		break;
+		
+	case 4:
+
+		printf("Isleminiz iptal edilmistir , kartinizi geri aliniz\n");
+		break;
+
+	default:
+		printf("1-2-3-4 rakamlarından birine tiklamaniz lazim\n");
+		break;
+		
+	}
+
+	}
+
+	else
+		printf("Sifreniz yanlis lutfen en bastan deneyin\n");
+
+
+}
