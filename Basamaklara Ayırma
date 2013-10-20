@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <conio.h>
+void main()
+{
+	int sayi, a, b, c, d;
+	printf("4 haneli sayiyi girin\n");
+	scanf("%d",&sayi);
+
+	a= sayi/1000;
+	b=(sayi-(a*1000))/100;
+	c=(sayi-(a*1000 + b*100))/10;
+	d=(sayi-(a*1000 + b*100 + c*10));
+
+	if(9999>=sayi && sayi>=1000)
+	{ 
+		printf("%d tane binler basamagi\n",a);
+		printf("%d tane yuzler basamagi\n",b);
+		printf("%d tane onlar basamagi\n",c);
+		printf("%d tane birler basamagi\n",d);
+	}
+	else
+		printf("sayi 1000 ve 9999 arasinda olmali");
+}
